@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: tan-dara9790-jjjjjjjjjjjjjjjjjjffffff-https-ingress
+  namespace: tan-dara9790-jjjjjjjjjjjjjjjjjjffffff
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - tan-dara9790-jjjjjjjjjjjjjjjjjjffffff.assessify.org
+      secretName: tan-dara9790-jjjjjjjjjjjjjjjjjjffffff-secret-tls
+  rules:
+    - host: tan-dara9790-jjjjjjjjjjjjjjjjjjffffff.assessify.org
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: tan-dara9790-jjjjjjjjjjjjjjjjjjffffff-service
+                port:
+                  number: 8085
