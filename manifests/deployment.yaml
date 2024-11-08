@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tan-dara9790-jjjjjjjjjjjjjjjjjjffffff-deployment
+  labels:
+    app: tan-dara9790-jjjjjjjjjjjjjjjjjjffffff
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tan-dara9790-jjjjjjjjjjjjjjjjjjffffff
+  template:
+    metadata:
+      labels:
+        app: tan-dara9790-jjjjjjjjjjjjjjjjjjffffff
+    spec:
+      containers:
+        - name: tan-dara9790-jjjjjjjjjjjjjjjjjjffffff-container
+          image: pipejet/tan-dara9790-jjjjjjjjjjjjjjjjjjffffff:0
+          ports:
+            - containerPort: 3000
